@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Adjust the text size to fit its container
+	</title>
+	<style>
+		.adjust-text-parent {
+			width:200px;
+			background:lightgreen;
+		}
+		.adjustment-text,
+		.normal-text {
+			font-size:16px;
+			white-space:nowrap;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="adjust-text-parent">
+		<span class="adjustment-text">This is the adjusted string by adjustty.</span>
+	
+		<p class="normal-text">Font-size of above string have been changed from <b>16px</b> to <b class="get-fs"></b></p>
+		<p class="normal-text">This is the normal string with normal font-size = 16px</p>
+	
+		<span class="adjustment-text">This is the second adjusted string by adjustty.</span>
+	</div>
+
+	<!-- connect link to adjustty plugin -->
+	<script src="assets/js/adjustty.min.js"></script>
+	<script>
+		// use adjustty here
+		adjustty('.adjustment-text');
+
+		// additional script to show current adjusted font-size
+		var fs = document.querySelectorAll('.adjustment-text')[0].style.fontSize;
+		document.querySelectorAll('.get-fs').forEach(function(item) {
+			item.innerHTML = fs;
+		});
+	</script>
+</body>
+
+</html>	
